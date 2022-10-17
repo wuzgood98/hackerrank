@@ -5,35 +5,25 @@
  * The function accepts INTEGER_ARRAY grades as parameter.
  */
 
+/**
+ * If the grade is greater than 35, then if the grade modulo 5 is greater than 2, then add 5 minus the
+ * grade modulo 5 to the grade
+ * @param grades - an array of integers representing grades before rounding
+ * @returns The grades array with the rounded grades.
+ */
 function gradingStudents(grades) {
   // Write your code here
-  let gradesAfterRounding = [];
-  let point = 0;
+  let grade = 0;
 
   for (let i = 0; i < grades.length; i++) {
-    let notToRound = grades[i];
-    if (grades[i] < 38) {
-      notToRound = grades[i];
+    if (grades[i] > 35) {
       if (grades[i] % 5 > 2) {
-        point = grades[i] % 5;
-        grades[i] += 5 - point;
+        grade = grades[i] % 5;
+        grades[i] += 5 - grade;
       }
     }
-    gradesAfterRounding.push(notToRound);
   }
-  return gradesAfterRounding;
+  return grades;
 }
 
 console.log(gradingStudents([73, 67, 38, 33]));
-
-/* function getMultiplesOfFive() {
-  let integers = [];
-  let num = 0;
-  while (num <= 100) {
-    num++;
-    integers.push(num);
-  }
-
-  return integers.filter((integer) => integer % 5 === 0);
-}
-console.log(getMultiplesOfFive()); */
